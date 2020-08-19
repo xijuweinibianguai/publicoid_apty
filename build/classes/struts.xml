@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 指定struts2是否以开发模式运行
+			1.热加载主配置.(不需要重启即可生效)
+			2.提供更多错误信息输出,方便开发时的调试
+	 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="oid" namespace="/" extends="struts-default" >
+		<interceptors>
+			<!-- 注册拦截器 -->
+			<interceptor name="loginInterceptor" class="cn.itheima.web.interceptor.LoginInterceptor"></interceptor>
+			<!-- 注册拦截器栈 -->
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="loginInterceptor">
+					<param name="excludeMethods">login</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 指定包中的默认拦截器栈 -->
+		<default-interceptor-ref name="myStack"></default-interceptor-ref>
+		<!-- 定义全局结果集 -->
+		<global-results>
+			<result name="toLogin" type="redirect" >/login.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<!-- 如果出现java.lang.RuntimeException异常,就将跳转到名为error的结果 -->
+			<exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
+		</global-exception-mappings>
+		
+  <!-- 生产厂商信息注册 -->   	
+		<action name="ManufinfoAction_*" class="cn.itheima.web.action.ManufinfoAction" method="{1}" >
+		    <result name="save" >/jsp/success.jsp</result>
+		  
+			<result name="list" >/jsp/register/manuf/list.jsp</result>
+			<result name="toDelete" type="redirectAction">
+	             <param name="actionName">ManufinfoAction_list</param>
+	             <param name="namespace">/</param>
+	         </result>
+			<result name="edit" >/jsp/register/manuf/edit.jsp</result>		
+			<result name="update" type="redirectAction">
+	             <param name="actionName">ManufinfoAction_list</param>
+	             <param name="namespace">/</param>
+	         </result>		
+			<!--  <result name="toList" type="redirectAction">
+	             <param name="actionName">ManufinfoAction_list</param>
+	             <param name="namespace">/</param>
+	         </result>-->
+	         <result name="getmanuf" >/jsp/resolve/nodeinfo1.jsp</result>
+		</action>
+
+  <!-- 应用厂商信息注册  -->   
+		<action name="UsrinfoAction_*" class="cn.itheima.web.action.UsrinfoAction" method="{1}" >
+		    <result name="save" >/jsp/success1.jsp</result>
+			<result name="list" >/jsp/register/usr/list.jsp</result>
+			<result name="toDelete" type="redirectAction">
+	             <param name="actionName">UsrinfoAction_list</param>
+	             <param name="namespace">/</param>
+	         </result>
+			<result name="edit" >/jsp/register/usr/edit.jsp</result>
+			<result name="update" type="redirectAction">
+	             <param name="actionName">UsrinfoAction_list</param>
+	             <param name="namespace">/</param>
+	         </result>			
+			<!--<result name="toList" type="redirectAction">
+	             <param name="actionName">UsrinfoAction_list</param>
+	             <param name="namespace">/</param>
+	         </result> -->         
+		</action> 
+		
+  <!-- 节点信息  -->   
+		<action name="NodeInfoAction_*" class="cn.itheima.web.action.NodeInfoAction" method="{1}" >
+			<result name="save" >/jsp/success3.jsp</result>
+			<result name="nosave" >/jsp/error.jsp</result>
+			<result name="update" >/jsp/success3.jsp</result>
+			<result name="noupdate" >/jsp/error.jsp</result>
+			<result name="getnodeif" >/jsp/resolve/nodeinfo1.jsp</result>
+					
+		</action> 
+		
+ <!-- 用户登陆 -->   	
+		<action name="UserAction_*" class="cn.itheima.web.action.UserAction" method="{1}" >
+			<result name="toHome" type="redirect" >/index.jsp</result>	
+			<result name="admin" type="redirect" >/admin.jsp</result>			
+			<result name="error"  >/login.jsp</result>
+		</action>
+<!-- 用于测试后台地址解析 -->				
+		<action name="CalldosAction_*" class="cn.itheima.web.action.CalldosAction" method="{1}">
+			<result name="tohaha" type="redirect">/jsp/infores/list.jsp</result>
+			<result name="toList" type="redirectAction">
+				<param name="actionName">CalldosAction_list</param>
+	         	<param name="namespace">/</param>
+			</result>
+		</action>
+		
+		<action name="UploadAction_*" class="cn.itheima.web.action.UploadAction" method="{1}">
+            <result name="sus" >/chenggong.jsp</result>
+		    <result name="err"  >/shibai.jsp</result>
+		    
+	    </action>
+	  
+	    
+				
+<!-- 用于测试  -->   
+		<action name="TestNode_*" class="cn.itheima.web.action.TestNode" method="{1}" >
+			<result name="ok" >/test2.jsp</result>			
+		</action> 
+	</package>
+</struts>
