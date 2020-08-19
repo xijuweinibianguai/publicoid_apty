@@ -1,0 +1,49 @@
+body {
+	padding: 0; /*�����ҳ���������հ�����*/
+	margin: 0;
+	text-align: center; /*���IE����������*/
+}
+
+#container {
+	width: 100%;   /* height:800px; ��ʱtmp background:red; */
+	margin: 0 auto;
+	/*text-align:left /*�������е��أ�����ļ���������*/
+	text-align: center;
+	position:relative;
+	background-color:#CCC;
+}
+
+#header {
+	margin: 10px auto;
+	text-align: center;
+	width: 960px;
+	height: 230px;
+	position:relative;
+	
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#main {
+	
+	width: 100%;
+	height: 440px;
+	position: relative;
+	z-index: 1;
+	vertical-align: middle;
+	text-align: center;
+	padding:20px ;
+	background-color: #9CF;
+	
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#bottom {
+	width: 100%;
+	height: 500px;
+    position: relative;
+	text-align: center;
+	margin-top:15px;
+	
+}
+

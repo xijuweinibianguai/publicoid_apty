@@ -1,0 +1,161 @@
+body {
+padding:0; /*解决网页中上下留空白问题*/
+margin:0;
+text-align:center; /*解决IE兼容性问题*/
+}
+.t{
+width:100%;
+height:40px;
+overflow:hidden; /*解决IE小于18px时按照18px算得兼容性问题 */
+clear:both;
+}
+
+#containter {
+width:100%;   /* height:800px; 暂时tmp background:red; */
+margin:0 auto;
+text-align:center;
+}
+
+#main{
+width:100%;
+text-align:center;
+}
+
+#back{
+width:100%;
+height:450px;
+text-align: center;
+background:#2a8dc8;
+border-bottom:1px solid #2a8dc8;
+
+}
+#textback{
+	/*border:1px solid #fff;*/
+	margin:0 auto;/*用于居中*/
+	width:1200px;
+	height:420px;
+	position: relative;
+}
+#text{
+	float:left;
+	
+	width:630px;
+	height:410px;
+	
+}
+.aa{ height:50x; width:100px; background-color:#002c6c;font-size:20px;color:#fff;display:block;}
+#textbutton{
+	position: absolute;
+	width:30px;
+	height:10px;
+	color:red;
+	left:10px;
+}
+
+.pic { /*专门显现图片区*/
+		float:right;
+        position: relative; /*相对定位.对应.pic img*/
+        
+        }
+.pic image {
+        display: block; /*默认有图片不显示*/
+        position: absolute; /*绝对定位.对应的是.pic这个div*/
+        top: 0px;
+        left: 0px;
+        }
+.pic a {
+		display: none;
+        }		
+.btn {
+        width: 180px;
+        height: 18px;
+        position: absolute; /*绝对定位相对于banner div*/		
+        bottom: 30px;
+        left: 850px;
+        }
+		
+.btn ul li {
+            background-color: #2a8dc8; /*蓝色*/
+            /*color: #ffffff;*/
+            list-style-type: none;
+            width: 13px;
+			height: 13px;
+            float: left;
+            border-radius: 4px; /*变成圆的*/
+            text-align: center;
+            line-height: 18px;
+            cursor: pointer; /*鼠标移动变手指状态*/
+            margin-left: 5px;
+            }
+
+.btn ul li.one {
+                background-color: #fff;
+                }
+
+
+#footer {
+margin:0 auto;
+width:960px;
+height:180px;/*tmp*/
+text-align:center;
+
+} 
+#left{
+float:left;
+width:214px;
+height:213px;
+background:url('../images/indexzhuce.png') no-repeat top center;
+text-align:center;
+position: relative;
+}
+#center{
+float:left;
+margin-left:160px;
+text-align:center;
+width:213px;
+height:213px;
+background: url('../images/indexjiexi.png') no-repeat top center;
+position: relative;
+
+}
+#right{
+float:right;
+width:213px;
+height:213px;
+background:url('../images/indexjianjie.png') no-repeat top center;
+text-align:center;
+position: relative;
+}
+#left p{
+font-size:16px;
+font-family:微软雅黑;
+bottom:0px;
+left:30px;
+position: absolute;
+}
+#center p{
+font-size:16px;
+font-family:微软雅黑;
+bottom:0px;
+left:30px;
+position: absolute;
+}
+#right p{
+font-size:16px;
+font-family:微软雅黑;
+bottom:0px;
+left:82px;
+position: absolute;
+}
+
+
+#bottom {
+margin:0 auto;
+width:960px;
+height:180px;/*tmp*/
+
+
+} 
+
+
+ 
